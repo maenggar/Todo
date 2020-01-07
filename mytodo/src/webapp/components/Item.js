@@ -1,9 +1,15 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import { TaskContext } from "../../StoreContext/TaskContext";
 
 function Item() {
-  const { task, removeTask, updateTask } = useContext(TaskContext);
+  const { task, removeTask, updateTask, isCompleted } = useContext(TaskContext);
+  const [newLabel, setNewLabel] = useState("");
   console.log(task);
+
+  const handleUpdate = index => {
+    setNewLabel(prompt("Update your task : ", "update task"));
+    updateTask(index - 1, newLabel);
+  };
   return (
     <Fragment>
       <ul className="todo-list">
@@ -15,14 +21,10 @@ function Item() {
             className={item.complete ? "completed" : "notcompleted"}
           >
             <div className="view">
-              <input
-                className="toggle"
-                type="checkbox"
-                // onChange={isCompleted(item.id)}
-              />
+              <input className="toggle" type="checkbox" />
               <label
                 onDoubleClick={() => {
-                  updateTask(item.id - 1, "new Unicorn");
+                  handleUpdate(item.id);
                 }}
                 className="todo-label"
               >

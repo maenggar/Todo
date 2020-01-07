@@ -16,10 +16,6 @@ function TaskContextProvider(props) {
   }, [task]);
 
   const addTask = newTodo => {
-    //const localData = JSON.parse(localStorage.getItem("task") || []);
-
-    //console.log(localData, "dari local data");
-
     setTask([
       ...task,
       {
@@ -42,9 +38,8 @@ function TaskContextProvider(props) {
   };
 
   const isCompleted = index => {
-    const newTask = [...task];
-    newTask[index].complete = false;
-    setTask(newTask);
+    task[index].complete = true;
+    setTask;
   };
 
   return (
