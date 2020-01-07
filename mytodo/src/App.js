@@ -1,15 +1,14 @@
-import React, { Component } from "react";
-import Home from "./Pages/Home";
-import "./App.css";
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
+import React from "react";
+import Home from "./webapp/pages/Home";
+import TaskContextProvider from "./StoreContext/TaskContext";
+function App() {
+  return (
+    <div>
+      <TaskContextProvider>
         <Home />
-      </div>
-    );
-  }
+      </TaskContextProvider>
+    </div>
+  );
 }
 
 export default App;

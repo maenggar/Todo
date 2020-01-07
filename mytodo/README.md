@@ -186,7 +186,7 @@ In addition to [ES6](https://github.com/lukehoban/es6features) syntax features, 
 * [Exponentiation Operator](https://github.com/rwaldron/exponentiation-operator) (ES2016).
 * [Async/await](https://github.com/tc39/ecmascript-asyncawait) (ES2017).
 * [Object Rest/Spread Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (stage 3 proposal).
-* [Class Fields and Static Properties](https://github.com/tc39/proposal-class-public-fields) (stage 2 proposal).
+* [className Fields and Static Properties](https://github.com/tc39/proposal-className-public-fields) (stage 2 proposal).
 * [JSX](https://facebook.github.io/react/docs/introducing-jsx.html) and [Flow](https://flowtype.org/) syntax.
 
 Learn more about [different proposal stages](https://babeljs.io/docs/plugins/#presets-stage-x-experimental-presets-).
@@ -311,7 +311,7 @@ For example:
 ```js
 import React, { Component } from 'react';
 
-class Button extends Component {
+className Button extends Component {
   render() {
     // ...
   }
@@ -327,7 +327,7 @@ export default Button; // Don’t forget to use export default!
 import React, { Component } from 'react';
 import Button from './Button'; // Import a component from another file
 
-class DangerButton extends Component {
+className DangerButton extends Component {
   render() {
     return <Button color="red" />;
   }
@@ -366,10 +366,10 @@ This project setup uses [Webpack](https://webpack.github.io/) for handling all a
 import React, { Component } from 'react';
 import './Button.css'; // Tell Webpack that Button.js uses these styles
 
-class Button extends Component {
+className Button extends Component {
   render() {
     // You can use them as regular CSS styles
-    return <div className="Button" />;
+    return <div classNameName="Button" />;
   }
 }
 ```
@@ -415,7 +415,7 @@ If you need to disable autoprefixing for some reason, [follow this section](http
 
 ## Adding a CSS Preprocessor (Sass, Less etc.)
 
-Generally, we recommend that you don’t reuse the same CSS classes across different components. For example, instead of using a `.Button` CSS class in `<AcceptButton>` and `<RejectButton>` components, we recommend creating a `<Button>` component with its own `.Button` styles, that both `<AcceptButton>` and `<RejectButton>` can render (but [not inherit](https://facebook.github.io/react/docs/composition-vs-inheritance.html)).
+Generally, we recommend that you don’t reuse the same CSS classNamees across different components. For example, instead of using a `.Button` CSS className in `<AcceptButton>` and `<RejectButton>` components, we recommend creating a `<Button>` component with its own `.Button` styles, that both `<AcceptButton>` and `<RejectButton>` can render (but [not inherit](https://facebook.github.io/react/docs/composition-vs-inheritance.html)).
 
 Following this rule often makes CSS preprocessors less useful, as features like mixins and nesting are replaced by component composition. You can, however, integrate a CSS preprocessor if you find it valuable. In this walkthrough, we will be using Sass, but you can also use Less, or another alternative.
 
