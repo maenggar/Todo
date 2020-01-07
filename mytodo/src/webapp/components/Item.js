@@ -4,11 +4,6 @@ import { TaskContext } from "../../StoreContext/TaskContext";
 function Item() {
   const { task, removeTask, updateTask } = useContext(TaskContext);
   console.log(task);
-
-  // const handleUpdate = (index, todo) => {
-  //   updateTask(task.id - 1, "new Unicorn");
-  // };
-
   return (
     <Fragment>
       <ul className="todo-list">
@@ -20,9 +15,15 @@ function Item() {
             className={item.complete ? "completed" : "notcompleted"}
           >
             <div className="view">
-              <input className="toggle" type="checkbox" />
+              <input
+                className="toggle"
+                type="checkbox"
+                // onChange={isCompleted(item.id)}
+              />
               <label
-                onDoubleClick={() => updateTask(item.id - 1, "new Unicorn")}
+                onDoubleClick={() => {
+                  updateTask(item.id - 1, "new Unicorn");
+                }}
                 className="todo-label"
               >
                 {item.todo}

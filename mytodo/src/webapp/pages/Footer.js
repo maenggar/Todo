@@ -4,8 +4,8 @@ import { TaskContext } from "../../StoreContext/TaskContext";
 function Footer() {
   const { task } = useContext(TaskContext);
   const allTask = task.length;
-  const activeTask = task.find(x => x.active === true);
-  console.log(activeTask);
+  //const activeTask = task.find(x => x.active === true);
+  //console.log(activeTask);
 
   return (
     <Fragment>
