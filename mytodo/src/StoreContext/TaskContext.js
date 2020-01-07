@@ -15,6 +15,7 @@ function TaskContextProvider(props) {
     localStorage.setItem("task", JSON.stringify(task));
   }, [task]);
 
+  //adding task function
   const addTask = newTodo => {
     setTask([
       ...task,
@@ -27,21 +28,26 @@ function TaskContextProvider(props) {
     ]);
   };
 
+  //Removing task Function
   const removeTask = id => {
     setTask(task.filter(task => task.id !== id));
   };
 
+  //updating task function
   const updateTask = (index, newTodo) => {
     const newTask = [...task];
     newTask[index].todo = newTodo;
     setTask(newTask);
   };
 
+  // changing complete object to true
   const isCompleted = index => {
-    task[index].complete = true;
-    setTask;
+    const newTask = [...task];
+    newTask[index].complete = true;
+    setTask(newTask);
   };
 
+  //context provider
   return (
     <TaskContext.Provider
       value={{ task, addTask, removeTask, updateTask, isCompleted }}

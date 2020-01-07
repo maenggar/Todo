@@ -4,8 +4,8 @@ import { TaskContext } from "../../StoreContext/TaskContext";
 function Item() {
   const { task, removeTask, updateTask, isCompleted } = useContext(TaskContext);
   const [newLabel, setNewLabel] = useState("");
-  console.log(task);
 
+  // handling updating task modal prompt menu
   const handleUpdate = index => {
     setNewLabel(prompt("Update your task : ", "update task"));
     updateTask(index - 1, newLabel);
@@ -21,7 +21,13 @@ function Item() {
             className={item.complete ? "completed" : "notcompleted"}
           >
             <div className="view">
-              <input className="toggle" type="checkbox" />
+              <input
+                className="toggle"
+                type="checkbox"
+                onChange={() => {
+                  isCompleted(item.id);
+                }}
+              />
               <label
                 onDoubleClick={() => {
                   handleUpdate(item.id);
